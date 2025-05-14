@@ -2,7 +2,7 @@
 function Post(props) {
     
     return (
-        <div>
+        <div style={{ color: 'red', textAlign: 'left'}}>
             <p>{props.author}</p>
             <p>{props.body}</p>
         </div>
