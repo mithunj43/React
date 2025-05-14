@@ -6,8 +6,13 @@ import Post from './components/post'
 
 function App() {
 
-  return <Post />
-  
+  return (
+  <>
+    <Post />
+    <Post />
+    <Post />
+  </>
+  ); 
 }
 
 export default App
