@@ -8,9 +8,8 @@ function App() {
 
   return (
   <>
-    <Post />
-    <Post />
-    <Post />
+    <Post author ="Mithun" body ="React.js is awesome"/>
+    <Post author ="Pooja" body ="Check out the full course"/>
   </>
   ); 
 }
