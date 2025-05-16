@@ -19,13 +19,17 @@ function PostsList() {
     function hideModelHandler() {
         setModelIsVisible(false);
     }
-   return (
-    <>
-        {modelIsVisible ? (
+
+    let modelContent;
+    if (modelIsVisible) {
+        modelContent = (
         <Modal onClose = {hideModelHandler}>
             <NewPost onBodyChange = {changeBodyHandler} onAuthorChange = {changeAuthorHandler}/>
-        </Modal> ) : null}
-        
+        </Modal> ) ;
+    } 
+   return (
+    <>
+        {modelContent}
         <ul className={classes.posts}>
         <Post author = {enteredAuthor} body = {enteredBody}/>
         <Post author ="Pooja" body ="Check out the full course"/>
