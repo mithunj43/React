@@ -4,7 +4,7 @@ import classes from './PostsList.module.css';
 import { useState } from 'react';
 import Modal from './Modal';
 
-function PostsList() {
+function PostsList({isPosting, onStopPosting}) {
     const [enteredBody, setEnteredBody] = useState('');
     function changeBodyHandler(event) {
         setEnteredBody(event.target.value);
@@ -14,22 +14,12 @@ function PostsList() {
     function changeAuthorHandler(event) {
         setEnteredAuthor(event.target.value);
     }
-
-    const [modelIsVisible, setModelIsVisible] = useState(true);
-    function hideModelHandler() {
-        setModelIsVisible(false);
-    }
-
-    let modelContent;
-    if (modelIsVisible) {
-        modelContent = (
-        <Modal onClose = {hideModelHandler}>
-            <NewPost onBodyChange = {changeBodyHandler} onAuthorChange = {changeAuthorHandler}/>
-        </Modal> ) ;
-    } 
    return (
     <>
-        {modelContent}
+        {isPosting && (
+        <Modal onClose = {onStopPosting}>
+            <NewPost onBodyChange = {changeBodyHandler} onAuthorChange = {changeAuthorHandler}/>
+        </Modal> )}
         <ul className={classes.posts}>
         <Post author = {enteredAuthor} body = {enteredBody}/>
         <Post author ="Pooja" body ="Check out the full course"/>
